@@ -12,6 +12,13 @@ def generate_array(size, type):
         temp = np.random.permutation(temp)
         # print(temp.dtype)
         return temp
+    if type == "almost_sorted":
+        temp = np.array(range(size))
+        for i in range(size//10):
+            r1 = np.random.randint(0, size)
+            r2 = np.random.randint(0, size)
+            temp[r1], temp[r2] = temp[r2], temp[r1]
+        return temp
     
 
 def generate_list(size, type):

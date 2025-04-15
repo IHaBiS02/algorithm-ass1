@@ -16,6 +16,7 @@ def insertion_sort(A):
             A[i+1] = A[i]
             i -= 1
         A[i+1] = key
+    return A
 
 if __name__ == "__main__":
     size, type = sys.argv[1:] # get array size and type

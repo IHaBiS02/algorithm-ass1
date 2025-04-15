@@ -7,6 +7,8 @@ import time
 import datetime
 from sort_checker import is_sorted
 import tracemalloc
+import sys
+sys.setrecursionlimit(10000000)
 use_np_domain = True
 
 def merge_procedure(A,p,q,r):

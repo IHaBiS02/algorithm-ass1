@@ -7,7 +7,7 @@ import time
 import datetime
 from sort_checker import is_sorted
 from heap_sort import heap_sort
-from inserction_sort import insertion_sort
+from insertion_sort import insertion_sort
 
 
 def partition (A,p,r):
