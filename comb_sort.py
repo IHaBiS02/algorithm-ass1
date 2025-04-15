@@ -7,15 +7,20 @@ import time
 import datetime
 from sort_checker import is_sorted
 
-def selection_sort(A):
-    for i in range(len(A)-1):
-        min = np.iinfo(A.dtype).max
-        min_index = None
-        for j in range(i, len(A)):
-            if A[j] < min:
-                min = A[j]
-                min_index = j
-        A[i], A[min_index] = A[min_index], A[i]
+
+def comb_sort(A, shrink_factor=1.3):
+    n = len(A)
+    
+    gap = n
+    swapped = True
+    
+    while gap > 1 or swapped:
+        gap = max(1, int(gap / shrink_factor))
+        swapped = False
+        for i in range(n - gap):
+            if A[i] > A[i + gap]:
+                A[i], A[i + gap] = A[i + gap], A[i]
+                swapped = True
     return A
 
 
@@ -23,7 +28,7 @@ if __name__ == "__main__":
     size, type = sys.argv[1:] # get array size and type
     array = generate_array(int(size), type)
     start = time.time()
-    result_array = selection_sort(array)
+    result_array = comb_sort(array)
     end = time.time()
     sec = (end - start)
     result = datetime.timedelta(seconds=sec)

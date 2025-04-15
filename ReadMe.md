@@ -19,10 +19,10 @@ Annnnnnnnnnnnnnd
 
 [ ] Library Sort  
 [ ] Tim Sort  
-[ ] Cocktail Shaker Sort  
-[ ] Comb Sort  
-[ ] Tournament Sort  
-[ ] Intro Sort
+[x] Cocktail Shaker Sort  
+[x] Comb Sort  
+[x] Tournament Sort  
+[x] Intro Sort
 
 Yeah, Idk why I start it in 1:00 am on the submission due date...  
 Cause I thought the due date is 4/16! HAHAHA...  
@@ -69,4 +69,12 @@ def bubble_sort(A):
 
 ## Selection Sort  
 
+## Cocktail Shaker Sort  
 
+![alt text](image-12.png)
+https://en.wikipedia.org/wiki/Cocktail_shaker_sort
+
+## Library Sort
+
+![Library Sort Pseudocode](image-13.png)  
+https://en.wikipedia.org/wiki/Library_sort  

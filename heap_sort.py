@@ -30,7 +30,7 @@ def build_max_heap(A):
     for i in range((len(A)-1)//2, 0, -1):
         max_heapify(A, i)
 
-def heapsort(A):
+def heap_sort(A):
     heap_A = np.concatenate((np.array([0,]), A)) # heap_A[0] is value of heap size
     build_max_heap(heap_A)
     for i in range(len(heap_A)-1, 0, -1):
@@ -46,8 +46,9 @@ def heapsort(A):
 
 if __name__ == "__main__":
     size, type = sys.argv[1:] # get array size and type
+    array = generate_array(int(size), type)
     start = time.time()
-    result_array = heapsort(generate_array(int(size), type))
+    result_array = heap_sort(array)
     end = time.time()
     sec = (end - start)
     result = datetime.timedelta(seconds=sec)

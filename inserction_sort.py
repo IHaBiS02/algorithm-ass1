@@ -19,8 +19,9 @@ def insertion_sort(A):
 
 if __name__ == "__main__":
     size, type = sys.argv[1:] # get array size and type
+    array = generate_array(int(size), type)
     start = time.time()
-    result_array = insertion_sort(generate_array(int(size), type))
+    result_array = insertion_sort(array)
     end = time.time()
     sec = (end - start)
     result = datetime.timedelta(seconds=sec)

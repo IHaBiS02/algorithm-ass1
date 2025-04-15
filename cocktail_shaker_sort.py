@@ -7,23 +7,39 @@ import time
 import datetime
 from sort_checker import is_sorted
 
-def selection_sort(A):
-    for i in range(len(A)-1):
-        min = np.iinfo(A.dtype).max
-        min_index = None
-        for j in range(i, len(A)):
-            if A[j] < min:
-                min = A[j]
-                min_index = j
-        A[i], A[min_index] = A[min_index], A[i]
+def cocktail_shaker_sort(A):
+    front = 0
+    end = len(A)-1
+    swapped = True
+
+    while swapped:
+        swapped = False
+        for i in range(front, end):
+            if A[i] > A[i+1]:
+                A[i],A[i+1]=A[i+1],A[i]
+                swapped=True
+        if not swapped:
+            break
+        end -= 1
+        swapped=False
+        for i in range(end,front,-1):
+            if A[i] < A[i-1]:
+                A[i],A[i-1]=A[i-1],A[i]
+                swapped=True
+        if not swapped:
+            break
+        front += 1
     return A
+
+
+
 
 
 if __name__ == "__main__":
     size, type = sys.argv[1:] # get array size and type
     array = generate_array(int(size), type)
     start = time.time()
-    result_array = selection_sort(array)
+    result_array = cocktail_shaker_sort(array)
     end = time.time()
     sec = (end - start)
     result = datetime.timedelta(seconds=sec)
